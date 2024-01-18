@@ -1,6 +1,6 @@
 # Shuttlings
 
-This is [Shuttle](https://www.shuttle.rs/)'s collection of code challenges for learning web backend development with Rust. The name is derived from [rustlings](https://github.com/rust-lang/rustlings), which is also a great resource for learning Rust basics.
+This is [Shuttle](https://www.shuttle.rs/)'s collection of code challenges for learning backend development with Rust. The name is derived from [rustlings](https://github.com/rust-lang/rustlings), which is also a great resource for learning Rust basics.
 
 ## Why did we create this repo?
 
