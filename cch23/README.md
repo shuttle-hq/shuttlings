@@ -12,8 +12,10 @@ You can check the versions with `cargo -V` and `cargo shuttle -V`.
 
 Open [Challenge -1](challenges/-1.md) for a guide to get started with using Shuttle, and follow along the journey to build a web server for solving all of Santa's problems!
 
-You can also read the challenges on the [Shuttle Console](https://console.shuttle.rs/cch)
+You can also read the challenges on the [Shuttle Console](https://console.shuttle.rs/cch).
 
 ## How to validate my solutions
 
-See [validator](validator/README.md).
+Locally, you can use the [validator](validator/README.md).
+
+You can also deploy your solution to Shuttle and validate it there. Go to the challenge pages on [Shuttle Console](https://console.shuttle.rs/cch) for instructions.
