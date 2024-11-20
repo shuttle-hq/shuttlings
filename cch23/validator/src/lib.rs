@@ -13,6 +13,7 @@ use reqwest::{
     redirect::Policy,
     StatusCode,
 };
+pub use shuttlings;
 use shuttlings::{SubmissionState, SubmissionUpdate};
 use tokio::{
     net::TcpStream,
@@ -89,13 +90,6 @@ pub async fn validate(url: &str, number: i32, tx: Sender<SubmissionUpdate>) {
     }
     tx.send(SubmissionState::Done.into()).await.unwrap();
     tx.send(SubmissionUpdate::Save).await.unwrap();
-}
-
-pub fn make_url(pn: Option<&str>) -> String {
-    match pn {
-        Some(pn) => format!("https://{pn}.shuttleapp.rs"),
-        None => "http://localhost:8000".to_owned(),
-    }
 }
 
 fn new_client() -> reqwest::Client {

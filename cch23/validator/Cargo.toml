@@ -4,21 +4,21 @@ description = "Validate solutions to challenges from Shuttle's Christmas Code Hu
 homepage = "https://www.shuttle.rs/cch"
 repository = "https://github.com/shuttle-hq/shuttlings"
 authors = ["Santa"]
-version = "22.0.1"
+version = "22.0.2"
 edition = "2021"
 license = "MIT"
 publish = true
 
 [dependencies]
-base64 = "0.21.5"
-chrono = { version = "0.4.31", features = ["clock", "serde"] }
-clap = { version = "4.4.11", features = ["derive", "cargo"] }
-futures-util = "0.3.29"
-reqwest = { version = "0.11.22", default-features = false, features = ["rustls-tls", "json", "multipart", "stream"] }
-serde = { version = "1.0.192", features = ["derive"] }
-serde_json = "1.0.108"
+base64 = "0.22"
+chrono = { version = "0.4", features = ["clock", "serde"] }
+clap = { version = "4", features = ["derive", "cargo"] }
+futures-util = "0.3"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json", "multipart", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 shuttlings = "0.1.0"
-tokio = { version = "1.28.2", features = ["full"] }
-tokio-tungstenite = { version = "0.21.0", features = ["rustls"] }
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = { version = "0.24", features = ["rustls"] }
 tracing = "0.1.40"
-uuid = "1.5.0"
+uuid = "1.5"

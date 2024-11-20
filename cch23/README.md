@@ -4,18 +4,18 @@ The Shuttle Christmas Code Hunt is a set of Rust challenges that were released t
 
 ## Prerequistites
 
-If you haven't yet, [install Rust](https://rustup.rs/) and [install cargo-shuttle](https://docs.shuttle.rs/getting-started/installation) 0.34.0 or higher.
+If you haven't yet, [install Rust](https://rustup.rs/) and [install Shuttle CLI](https://docs.shuttle.dev/getting-started/installation).
 
-You can check the versions with `cargo -V` and `cargo shuttle -V`.
+You can check the versions with `cargo -V` and `shuttle -V`.
 
 ## How to get started
 
 Open [Challenge -1](challenges/-1.md) for a guide to get started with using Shuttle, and follow along the journey to build a web server for solving all of Santa's problems!
 
-You can also read the challenges on the [Shuttle Console](https://console.shuttle.rs/cch).
+You can also read the challenges on the [Shuttle Console](https://console.shuttle.dev/).
 
 ## How to validate my solutions
 
 Locally, you can use the [validator](validator/README.md).
 
-You can also deploy your solution to Shuttle and validate it there. Go to the challenge pages on [Shuttle Console](https://console.shuttle.rs/cch) for instructions.
+You can also deploy your solution to Shuttle and validate it there. Go to the challenge pages on [Shuttle Console](https://console.shuttle.dev/) for instructions.

@@ -1,6 +1,6 @@
 # Shuttle's Christmas Code Hunt 2023 - Validator
 
-Use this binary to run the official tests against your solution to challenges from [Shuttle's Christmas Code Hunt 2023](https://www.shuttle.rs/cch).
+Use this binary to run the official tests against your solution to challenges from [Shuttle's Christmas Code Hunt 2023](https://www.shuttle.dev/cch).
 
 ## Installation / Upgrading
 
