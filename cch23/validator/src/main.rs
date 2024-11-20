@@ -1,7 +1,6 @@
-use cch23_validator::{
-    args::ValidatorArgs, run, SubmissionState, SubmissionUpdate, SUPPORTED_CHALLENGES,
-};
+use cch23_validator::{args::ValidatorArgs, run, SUPPORTED_CHALLENGES};
 use clap::{CommandFactory, FromArgMatches};
+use shuttlings::{SubmissionState, SubmissionUpdate};
 use uuid::Uuid;
 
 #[tokio::main]

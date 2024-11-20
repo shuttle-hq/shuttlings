@@ -151,7 +151,7 @@ dependencies = [
 
 [[package]]
 name = "cch23-validator"
-version = "22.0.0"
+version = "22.0.1"
 dependencies = [
  "base64",
  "chrono",
@@ -160,6 +160,7 @@ dependencies = [
  "reqwest",
  "serde",
  "serde_json",
+ "shuttlings",
  "tokio",
  "tokio-tungstenite",
  "tracing",
@@ -988,6 +989,12 @@ dependencies = [
  "cpufeatures",
  "digest",
 ]
+
+[[package]]
+name = "shuttlings"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f8907b5c3c71f8fcb94aa767b4eef3a3f86ddd352445c8b152ecbc0f28bc26c7"
 
 [[package]]
 name = "signal-hook-registry"

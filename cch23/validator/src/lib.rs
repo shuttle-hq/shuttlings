@@ -13,6 +13,7 @@ use reqwest::{
     redirect::Policy,
     StatusCode,
 };
+use shuttlings::{SubmissionState, SubmissionUpdate};
 use tokio::{
     net::TcpStream,
     sync::mpsc::Sender,
@@ -25,46 +26,6 @@ use uuid::Uuid;
 pub const SUPPORTED_CHALLENGES: &[i32] =
     &[-1, 1, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22];
 pub const SUBMISSION_TIMEOUT: u64 = 60;
-
-#[derive(Debug)]
-pub enum SubmissionState {
-    Waiting,
-    Running,
-    Done,
-    Error,
-}
-impl std::fmt::Display for SubmissionState {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{self:?}")
-    }
-}
-
-#[derive(Debug)]
-pub enum SubmissionUpdate {
-    /// State update
-    State(SubmissionState),
-    /// bool is true if this task was the last core task, int is amount of bonus points
-    TaskCompleted(bool, i32),
-    /// Append line to log
-    LogLine(String),
-    /// Save changes to db
-    Save,
-}
-impl From<SubmissionState> for SubmissionUpdate {
-    fn from(value: SubmissionState) -> Self {
-        Self::State(value)
-    }
-}
-impl From<(bool, i32)> for SubmissionUpdate {
-    fn from((b, i): (bool, i32)) -> Self {
-        Self::TaskCompleted(b, i)
-    }
-}
-impl From<String> for SubmissionUpdate {
-    fn from(value: String) -> Self {
-        Self::LogLine(value)
-    }
-}
 
 pub async fn run(url: String, id: Uuid, number: i32, tx: Sender<SubmissionUpdate>) {
     info!(%id, %url, %number, "Starting submission");
