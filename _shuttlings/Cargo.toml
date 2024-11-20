@@ -1,0 +1,10 @@
+[package]
+name = "shuttlings"
+description = "Types for Shuttlings libraries"
+repository = "https://github.com/shuttle-hq/shuttlings"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = true
+
+[dependencies]
