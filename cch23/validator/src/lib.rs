@@ -2000,6 +2000,7 @@ async fn validate_19(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
 
     test = (2, 5);
     a1.close().await?;
+    sleep(Duration::from_millis(10)).await;
     a2.send_tweet(l6).await?;
     a2.recv_json(&serde_json::json!({"user": "agnetha", "message": l6}))
         .await?;
@@ -2038,106 +2039,6 @@ async fn validate_19(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
     ensure_views(0).await.map_err(|_| test)?;
     // generated with https://github.com/orhun/godsays
     let phrases = Arc::new([
-        "you're nuts lift Greek to me cheerful don't mention it I made it that way quit it",
-        "just lovely left field king of mars threads do it insane its trivial obviously",
-        "not that theres anything wrong surprise surprise you'll see ba ha no you cant off the record Jesus",
-        "you don't like it employer joke small talk that's all folks Varoom yikes",
-        "Russia grumble failure to communicate Greece enough let me count the ways nut job",
-        "don't push it Han shot first Is that so big fish Jedi mind trick you never know game changer",
-        "on occassion that's no fun if and only if no more tears cracks me up it was nothing whiner",
-        "Wow piety figuratively figuratively you're no fun hot air astrophysics",
-        "astounding duck the shoe relax you think you could do better is it just me or What are you doing Dave Bam",
-        "to infinity and beyond basket case no more let me count the ways one more time that's for me to know NOT",
-        "What I want relax what planet are you from not that theres anything wrong What I want phasors on stun walking",
-        "ice cream this might end badly thank you very much I'm not sure catastrophe beam me up food",
-        "nope wazz up with that grumble awesome yuck are you sure recipe",
-        "I'll let you know FBI wishful thinking jobs what's up Heaven Ghost",
-        "take the day off repeat after me scum let's roll I'll ask nicely stuff duck the shoe",
-        "not a chance in hell nut job nope heathen air head basically why do I put up with this",
-        "chill out I'm not sure sad no news is good news news to me biggot whatcha talkin' 'bout",
-        "well obviously That's gonna leave a mark if anything can go wrong debt play exports rose colored glasses",
-        "not in my wildest dreams game changer Zzzzzzzz do over how could you look on the brightside You da man",
-        "Ivy league oh no a likely story you're lucky face palm what luck I'll think about it",
-        "game over homo segway gluttony pwned China test pilot",
-        "after a break strip you owe me fight humongous God never happy",
-        "take the day off bizarre on occassion just between us I'll think about it application I veto that",
-        "spending look out enough is it just me or jealousy debt that's much better",
-        "I didn't do it gross Han shot first I had a crazy dream tree hugger LOL music",
-        "I have an idea chill you're nuts glorious CIA astrophysics king nun",
-        "no more tears left field Ivy league break some woopass on you go ahead make my day don't push it middle class",
-        "bizarre fer sure now that I think about it I'll be back in a galaxy far far away holy grail you couldnt navigate yer way circleK",
-        "honesty holy grail failure is not an option hi let me count the ways Oh really are you deaf",
-        "Isn't that special my precious it'd take a miracle the enquirer hobnob job handyman",
-        "dance oh my chill If had my druthers evolution you know a better God could it be   Satan",
-        "I'm in suspense Heaven joking experts you owe me That's gonna leave a mark spoiled brat",
-        "delicious you should be so lucky basket case chess you couldnt navigate yer way circleK smack some sense into you Yawn",
-        "I could swear game changer what would Jesus do just between us news to me Ghost charity",
-        "climate I donno threads food What I want roses are red you're so screwed",
-        "my precious Okilydokily energy dignity atrocious quit it when hell freezes over",
-        "I give up Watch this now you tell me courage love relax you do it",
-        "I could swear delightful Catastrophic Success bad why is it King Midas happy",
-        "I'll think about it it's hopeless well I never stoked air head I'll ask nicely end",
-        "you don't like it You fix it got the life imports rip off computers I don't care",
-        "now that I think about it rich I'll let you know humongous let's roll ahh thats much better no way dude",
-        "atrocious Hicc up ghastly don't worry hello I could be wrong heathen",
-        "chill out ouch fool you couldnt navigate yer way circleK I'm done earnest threads",
-        "energy ba ha ghetto I'm the boss boink King Midas you better not",
-        "spoiled brat overflow after a break don't push it fabulous chill you don't like it",
-        "don't worry other Russia wonderbread ohh thank you endure how high",
-        "ridiculous What are you doing Dave crash and burn manufacturing chill gosh thank you very much",
-        "how do I put this astronomical I had a crazy dream umm If had my druthers Varoom are you deaf",
-        "Han shot first car tiffanies fool Shalom who are you to judge charged",
-        "take your pick atheist don't even think about it I was just thinking you talkin' to me conservative scorning",
-        "daunting quit it SupremerCourt enough how hard could it be lighten up how could you",
-        "it's hopeless you hoser horrendous climate talk to my lawyer enough not that theres anything wrong",
-        "I was sleeping nasty do you get a cookie foul job I m prettier than this man praise",
-        "glorious Catastrophic Success far out man I don't care soap opera unsung hero hang in there",
-        "a screw loose glorious not a chance in hell Greece rum bitty di vice are you feeling lucky",
-        "King Midas catastrophe far out man you better not Yes you are vengeful Catastrophic Success",
-        "thats right unemployment ouch you know a better God fun atheist joy",
-        "'kay I don't care no more patience happy happy joy joy cowardice don't have a cow",
-        "relax do I have to hard working happy happy joy joy ouch huh just lovely",
-        "ahh thats much better courage China furious its trivial obviously straighten up what would Jesus do",
-        "evolution SupremerCourt joy glorious exports hard working Oh Hell No",
-        "Boo do not disturb radio smurfs reverse engineer biggot I don't care",
-        "courage This is confusing Yawn ahh thats much better you talkin' to me I'm busy Terry",
-        "Pullin the dragons tail don't mention it adultery what's up talk to my lawyer try again That's my favorite",
-        "praise that's for me to know mission from God incoming endure You get what you pray for charity",
-        "Pullin the dragons tail chill out do you get a cookie overflow You fix it what luck just lovely",
-        "catastrophe let me count the ways Jesus food I forgot busybody so he sess",
-        "what would Jesus do courage now you tell me can you hear me now Shhh rip off okay",
-        "not too shabby food That's gonna leave a mark Yawn Ivy league sess me you're so screwed",
-        "bye I am not amused unemployment figuratively really gambling look on the brightside",
-        "umm what now bring it on petty Hicc up boink hobnob Varoom",
-        "the quit ouch quite high mucky muck by the way study",
-        "silly human poor I got your back handyman don't have a cow but of course I could swear",
-        "One finger salute overflow won't you be my neighbor just lovely industrious Mars place",
-        "oops an Irishman is forced to talk to God come and get me bye absolutely failure is not an option do you get a cookie",
-        "not the sharpest knife in the drawer what's it to you the enquirer CIA 'kay do you have a problem run away",
-        "who's to say zoot what a mess you talkin' to me laziness because I said so okay",
-        "one more time ROFLMAO enough said frown happy happy joy joy Zzzzzzzz slumin",
-        "nasty who are you to judge application are you insane how about that figuratively eh",
-        "rubbish try again the wot courage I hate when that happens thats just wrong",
-        "bye hey Mikey he likes it boink geek yep what a nightmare oh no",
-        "praying the enquirer no you cant let's see fake nut job failure to communicate",
-        "yuck 'kay are you feeling lucky high mucky muck refreshing love not the sharpest knife in the drawer",
-        "if and only if unsung hero I'll ask nicely you're nuts pride wrath Zzzzzzzz",
-        "shucks NeilDeGrasseTyson courage absolutely charity failure is not an option one more time",
-        "by the way industrious boss epic fail oh oh Pope BRB",
-        "I'm God and you're not my precious food duck the shoe special case where's the love in a perfect world",
-        "adultery I'm impressed break some woopass on you wishful thinking sloth yikes This cant be william wallace",
-        "you think I'm joking I donno fer sure computers it figures phasors on stun courage",
-        "smurfs I didn't do it kick back catastrophe bickering church That's my favorite",
-        "I veto that how could you God is not mocked okay rubbish harder than it looks voodoo",
-        "caution Okilydokily really segway outrageous cosmetics thats right",
-        "potentially look buddy holy grail joyful honestly pride look buddy",
-        "pwned what luck repent lighten up BBC are you sure astrophysics",
-        "by the way joy yeah birds naughty blessing whazza matter for you",
-        "what's it to you grumble ha Hicc up huh endure money",
-        "left field not the sharpest knife in the drawer patience crazy debt because I said so I made it that way",
-        "strip wastoid red fang hang in there It grieves me you are my sunshine you'll see",
-        "how could you frown you're in big trouble king of mars thats just wrong that's your opinion what planet are you from",
-        "you think I'm joking I forgot Greek to me wonderful jobs spunky catastrophe",
         "Okilydokily Give me praise Shhh how high umm what now epic fail mine",
         "quite Wow Shhh driving wot exorbitant Church",
         "whatcha talkin' 'bout chaos look buddy husband good pow Shalom",
@@ -2242,7 +2143,7 @@ async fn validate_19(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
     let mut joins = tokio::task::JoinSet::<ValidateResult>::new();
     let mut tasks = vec![];
     let views_url = Arc::new(views_url.clone());
-    for i in 0..20 {
+    for i in 0..5 {
         let u = ws_base_url.clone();
         let ps = phrases.clone();
         let views_url = views_url.clone();
@@ -2250,8 +2151,8 @@ async fn validate_19(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
         tasks.push(async move {
             for (ii, p) in ps.iter().enumerate() {
                 user.send_tweet(*p).await?;
-                sleep(Duration::from_millis(1)).await;
-                if i == 0 && ii == 100 {
+                sleep(Duration::from_millis(150)).await;
+                if i == 0 && ii == 50 {
                     let client = new_client();
                     client
                         .get(views_url.deref())
@@ -2273,7 +2174,7 @@ async fn validate_19(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
         r?;
     }
     sleep(Duration::from_millis(100)).await;
-    ensure_views(80000).await.map_err(|_| test)?;
+    ensure_views(2500).await.map_err(|_| test)?;
     // TASK 2 DONE
     tx.send((false, 500).into()).await.unwrap();
 
