@@ -33,13 +33,8 @@ async fn main() {
         let mut bonus = 0;
         while let Some(s) = rx.recv().await {
             match s {
-                SubmissionUpdate::State(state) => {
-                    match state {
-                        SubmissionState::Done => {
-                            tasks_completed = 0;
-                        }
-                        _ => (),
-                    };
+                SubmissionUpdate::State(SubmissionState::Done) => {
+                    tasks_completed = 0;
                 }
                 SubmissionUpdate::TaskCompleted(completed, bp) => {
                     tasks_completed += 1;

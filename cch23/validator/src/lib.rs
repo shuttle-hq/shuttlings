@@ -795,13 +795,13 @@ async fn validate_11(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
     let url = &format!("{}/11/assets/decoration.png", base_url);
     let res = client.get(url).send().await.map_err(|_| test)?;
     let headers = res.headers();
-    if !headers
+    if headers
         .get("content-type")
-        .is_some_and(|v| v == "image/png")
+        .is_none_or(|v| v != "image/png")
     {
         return Err(test);
     }
-    if !headers.get("content-length").is_some_and(|v| v == "787297") {
+    if headers.get("content-length").is_none_or(|v| v != "787297") {
         return Err(test);
     }
     let bytes = res.bytes().await.map_err(|_| test)?;
@@ -843,7 +843,7 @@ async fn validate_11(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
     );
     let res = client
         .post(url)
-        .multipart(form.into())
+        .multipart(form)
         .send()
         .await
         .map_err(|_| test)?;
@@ -861,7 +861,7 @@ async fn validate_11(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
     );
     let res = client
         .post(url)
-        .multipart(form.into())
+        .multipart(form)
         .send()
         .await
         .map_err(|_| test)?;
@@ -2399,7 +2399,7 @@ async fn validate_22(base_url: &str, tx: Sender<SubmissionUpdate>) -> ValidateRe
 1
 ",
         StatusCode::OK,
-        "🎁".repeat(1).as_str(),
+        "🎁",
     )
     .await?;
     t.test(
