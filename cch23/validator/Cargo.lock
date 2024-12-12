@@ -152,7 +152,7 @@ dependencies = [
 
 [[package]]
 name = "cch23-validator"
-version = "22.0.4"
+version = "22.0.5"
 dependencies = [
  "base64",
  "chrono",
