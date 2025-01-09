@@ -1,0 +1,277 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+        <style>
+body {
+    --darkgrey: #0d0d0d;
+    --red: #a00;
+    --green: #060;
+    --white: #eee;
+    background-color: var(--darkgrey);
+    color: var(--white);
+}
+main {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.tree {
+    position: relative;
+    height: 500px;
+}
+.tree * {
+    position: absolute;
+}
+#star {
+    top: -20px;
+    left: 150px;
+    width: 100px;
+    height: 100px;
+    background-color: darkgoldenrod;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}
+#star.lit {
+    background: linear-gradient(10deg, rgba(227,233,0,1) 0%, rgba(241,245,148,1) 100%);
+}
+.tree-part {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent green transparent;
+    border-width: 0 100px 100px 100px;
+}
+.tree-part1 {
+    left: 100px;
+    top: 20px;
+}
+.tree-part2 {
+    left: 100px;
+    top: 60px;
+    transform: scale(120%);
+    filter: brightness(90%);
+}
+.tree-part3 {
+    left: 100px;
+    top: 100px;
+    transform: scale(135%);
+}
+.tree-part4 {
+    left: 100px;
+    top: 140px;
+    transform: scale(150%);
+    filter: brightness(90%);
+}
+.tree-part5 {
+    left: 100px;
+    top: 180px;
+    transform: scale(160%);
+}
+.tree-base {
+    width: 40px;
+    height: 40px;
+    left: 180px;
+    top: 310px;
+    background-color: rgb(97, 47, 13);
+    margin: 0 auto;
+}
+.ornament {
+    width: 20px;
+    height: 20px;
+    background-color: darkred;
+    border-radius: 50%;
+    transition: background-color 1s ease;
+}
+.ornament.on {
+    background-color: red;
+}
+#ornament1 {
+    top: 90px;
+    left: 150px;
+}
+#ornament2 {
+    top: 140px;
+    left: 210px;
+}
+#ornament3 {
+    top: 172px;
+    left: 160px;
+}
+#ornament4 {
+    top: 253px;
+    left: 110px;
+}
+#ornament5 {
+    top: 200px;
+    left: 260px;
+}
+#ornament6 {
+    top: 230px;
+    left: 200px;
+}
+#ornament7 {
+    top: 270px;
+    left: 250px;
+}
+.present {
+    width: 100px;
+    height: 100px;
+    box-shadow: black 0px 0px 11px 1px;
+}
+.present.red {
+    background-color: red;
+}
+.present.blue {
+    background-color: blue;
+}
+.present.purple {
+    background-color: purple;
+}
+.present:nth-child(1) {
+    top: 280px;
+    left: 350px;
+}
+.present:nth-child(2) {
+    top: 280px;
+    left: 460px;
+}
+.present:nth-child(3) {
+    top: 320px;
+    left: 420px;
+}
+.present .ribbon {
+    background: rgb(227,233,0);
+    background: linear-gradient(0deg, rgba(227,233,0,1) 0%, rgba(241,245,148,1) 100%);
+}
+.present .ribbon:nth-child(1) {
+    width: 100px;
+    height: 20px;
+    top: 40px;
+}
+.present .ribbon:nth-child(2) {
+    width: 20px;
+    height: 100px;
+    left: 40px;
+}
+.present .ribbon:nth-child(3) {
+    width: 20px;
+    height: 30px;
+    left: 30px;
+    top: -20px;
+    transform: rotate(-45deg);
+}
+.present .ribbon:nth-child(4) {
+    width: 20px;
+    height: 30px;
+    left: 50px;
+    top: -20px;
+    transform: rotate(35deg);
+}
+#switch {
+    top: 400px;
+    left: 145px;
+    border: none;
+    background-color: #ccc;
+    color: black;
+    padding: 1em;
+    border-radius: .5em;
+    cursor: pointer;
+    font-weight: bold;
+}
+.text {
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+.rocket {
+    width: 80px;
+    height: 80px;
+}
+.spacer {
+    height: 800px;
+}
+#lockfilecanvas {
+    height: 276px;
+    width: 276px;
+    margin: auto;
+    border: 1px solid grey;
+    margin-bottom: 100px;
+    position: relative;
+}
+#lockfilecanvas * {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="tree">
+                <div class="present red" hx-get="/23/present/blue" hx-swap="outerHTML">
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                </div>
+                <div class="present red" hx-get="/23/present/blue" hx-swap="outerHTML">
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                </div>
+                <div class="present red" hx-get="/23/present/blue" hx-swap="outerHTML">
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                    <div class="ribbon"></div>
+                </div>
+                <div class="tree-base"></div>
+                <div class="tree-part tree-part5"></div>
+                <div class="tree-part tree-part4"></div>
+                <div class="tree-part tree-part3"></div>
+                <div class="tree-part tree-part2"></div>
+                <div class="tree-part tree-part1"></div>
+                <div class="ornament" id="ornament1" hx-trigger="load changed delay:2000ms once" hx-get="/23/ornament/on/1" hx-swap="outerHTML"></div>
+                <div class="ornament" id="ornament2" hx-trigger="load changed delay:1600ms once" hx-get="/23/ornament/on/2" hx-swap="outerHTML"></div>
+                <div class="ornament" id="ornament3" hx-trigger="load changed delay:200ms once" hx-get="/23/ornament/on/3" hx-swap="outerHTML"></div>
+                <div class="ornament" id="ornament4" hx-trigger="load changed delay:400ms once" hx-get="/23/ornament/on/4" hx-swap="outerHTML"></div>
+                <div class="ornament" id="ornament5" hx-trigger="load changed delay:800ms once" hx-get="/23/ornament/on/5" hx-swap="outerHTML"></div>
+                <div class="ornament" id="ornament6" hx-trigger="load changed delay:1200ms once" hx-get="/23/ornament/on/6" hx-swap="outerHTML"></div>
+                <div class="ornament" id="ornament7" hx-trigger="load changed delay:1400ms once" hx-get="/23/ornament/on/7" hx-swap="outerHTML"></div>
+                <div class="present-wrap present-wrap1"></div>
+                <div class="present-wrap present-wrap2"></div>
+                <div class="present-wrap present-wrap3"></div>
+                <div class="present-wrap present-wrap4"></div>
+                <div id="star"></div>
+                <button id="switch" hx-get="/23/star" hx-swap="outerHTML" hx-target="#star">
+                    Light the star
+                </button>
+            </div>
+            <div class="text">Merry Christmas!</div>
+            <div class="text">/ Shuttle</div>
+            <div class="text"><img class="rocket" src="https://console.shuttle.dev/images/rocket.gif"></div>
+            <div class="spacer"></div>
+            <div class="text">Bonus task:</div>
+            <form hx-post="/23/lockfile" enctype="multipart/form-data" hx-target="#lockfilecanvas">
+                <input type="file" name="lockfile" required>
+                <br>
+                <br>
+                <button type="submit">Submit lockfile</button>
+            </form>
+            <div id="lockfilecanvas"></div>
+        </main>
+    </body>
+</html>
