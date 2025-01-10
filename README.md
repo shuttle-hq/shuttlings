@@ -13,4 +13,4 @@ We've seen the challenges used in numerous cases, such as educating team members
 ## Editions
 
 - [Shuttle's Christmas Code Hunt 2023](cch23/README.md)
-- Shuttle's Christmas Code Hunt 2024 (will be published after the event is finished) ([play it now!](https://console.shuttle.dev/shuttlings/cch24))
+- [Shuttle's Christmas Code Hunt 2024](cch24/README.md)
